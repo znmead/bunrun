@@ -26,7 +26,7 @@ const server = Bun.serve({
             return new Response(body)
         }
         if (url.pathname === '/contact') {
-            const body = figlet.textSync('Contact Me at 831-236-6136 or zachary.n.mead@gmail.com', {
+            const body = figlet.textSync('Contact me at 831-236-6136 or zachary.n.mead@gmail.com', {
                 font: 'Doom',
                 horizontalLayout: 'default',
                 verticalLayout: 'default',
@@ -65,7 +65,16 @@ const server = Bun.serve({
             }) + '\n' + req.url
             return new Response(body)
         }
-        return new Response('404 - Not Found - 404', { status: 404 })
+        else {
+            const body = figlet.textSync(`>>> Be  me \n>>> Not  found \n>>> 404 `, {
+                font: 'Doom',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body, { status: 404 })
+        }
     }
 }); // => Server
 
