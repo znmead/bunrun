@@ -1,18 +1,71 @@
 import figlet from "figlet";
 
-
-
 const server = Bun.serve({
     port: 3000,
     fetch(req) {
-        const body = figlet.textSync('Pranaam!', {
-            font: 'Chunky',
-            horizontalLayout: 'default',
-            verticalLayout: 'default',
-            width: 80,
-            whitespaceBreak: true
-        }) + '\n' + req.url
-        return new Response(body)
+        const url = new URL(req.url)
+
+        if (url.pathname === '/') {
+            const body = figlet.textSync('Pranaam!', {
+                font: 'Chunky',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        if (url.pathname === '/about') {
+            const body = figlet.textSync('About Mead', {
+                font: 'Isometric2',
+                horizontalLayout: 'full',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        if (url.pathname === '/contact') {
+            const body = figlet.textSync('Contact Me at 831-236-6136 or zachary.n.mead@gmail.com', {
+                font: 'Doom',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        if (url.pathname === '/projects') {
+            const body = figlet.textSync('Projects', {
+                font: 'Small',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        if (url.pathname === '/resume') {
+            const body = figlet.textSync('Resume', {
+                font: 'USA Flag',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        if (url.pathname === '/blog') {
+            const body = figlet.textSync('Blog', {
+                font: 'Big',
+                horizontalLayout: 'default',
+                verticalLayout: 'default',
+                width: 80,
+                whitespaceBreak: true
+            }) + '\n' + req.url
+            return new Response(body)
+        }
+        return new Response('404 - Not Found - 404', { status: 404 })
     }
 }); // => Server
 
