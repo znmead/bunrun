@@ -1,9 +1,8 @@
-const z = 3; 
+const server = Bun.serve({
+    port: 3000,
+    fetch(req) {
+        return new Response('Hello WWIII!')
+    }
+}); // => Server
 
-
-const read = (text: string) => {
-    return text;
-}
-
-const msg = read('Hello World!'); // msg is a string
-console.log(msg); // Hello world!
+console.log(`Listening on PORT http://localhost:${server.port}`)
