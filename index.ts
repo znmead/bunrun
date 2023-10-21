@@ -66,7 +66,7 @@ const server = Bun.serve({
             return new Response(body)
         }
         else {
-            const body = figlet.textSync(`>>> Be  me \n>>> Not  found \n>>> 404 `, {
+            const body = figlet.textSync(`>>> Be  me \n>>> Not  found \n>>> - 404 -`, {
                 font: 'Doom',
                 horizontalLayout: 'default',
                 verticalLayout: 'default',
